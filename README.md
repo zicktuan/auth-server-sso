@@ -52,12 +52,12 @@ Server sẽ chạy tại `http://localhost:5403`
 
 ### Environment Variables
 
-- `PORT`: Port để chạy server (mặc định: 5403)
+- `PORT`: Port để chạy server
 
-- `MONGO_URI`
+- `MONGO_URI`: Chuỗi kết nối đến cơ sở dữ liệu MongoDB
 
-- `PRIVATE_KEY_PATH`
+- `PRIVATE_KEY_PATH`: Đường dẫn đến private key (./keys/privateKey.pem)
 
-- `PUBLIC_KEY_PATH`
+- `PUBLIC_KEY_PATH`: Đường dẫn đến public key (./keys/publicKey.pem)
 
 ---
