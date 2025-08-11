@@ -256,4 +256,25 @@ const getCerts = (req, res) => {
     res.send(publicKey);
 };
 
-module.exports = { register, authorize, login, token, userinfo, getCerts, registerClient };
+const getOpenIDConfig = (req, res) => {
+    const issuer = `http://localhost:${process.env.PORT || 5403}`;
+    res.json({
+        "issuer": issuer,
+        "authorization_endpoint": `${issuer}/authorize`,
+        "token_endpoint": `${issuer}/token`,
+        "userinfo_endpoint": `${issuer}/userinfo`,
+        "jwks_uri": `${issuer}/certs`,
+        "response_types_supported": [
+            "code"
+        ],
+        "scopes_supported": [
+            "openid",
+            "profile"
+        ],
+        "id_token_signing_alg_values_supported": [
+            "RS256"
+        ]
+    });
+};
+
+module.exports = { register, authorize, login, token, userinfo, getCerts, registerClient, getOpenIDConfig };
